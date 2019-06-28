@@ -1,27 +1,43 @@
-# HttpDemo
+## Http Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.4.
+#### Task 1: Import HttpClientModule in app.module.ts
+```
+import { HttpClientModule } from '@angular/common/http';
 
-## Development server
+ imports: [
+    BrowserModule,HttpClientModule
+  ],
+  ```
+#### Task 2: Inject HttpClient in constructor
+```
+import { HttpClient } from '@angular/common/http';
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+constructor(private http:HttpClient) { }
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Task 3: Create a Method to call a Servlet API in service class
+```
+getProducts(){
+    var url = "http://localhost:8080/servlet-webservice-demo/ListProductServletUsingGson";
+    return this.http.get<[]>(url);
+  }
+```
+  
+#### Task 4: Call ProductService Method from component
+```
+constructor(private productService: ProductService) { }
 
-## Build
+ products:[];
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  loadProducts(){
+    this.productService.getProducts().subscribe((res)=>{
+      this.products = res;
+    });
+  }
+```
 
-## Running unit tests
+#### Task 5: Test the output
+```
+{{products|json}}
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
