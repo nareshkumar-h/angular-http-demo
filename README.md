@@ -24,7 +24,7 @@ getProducts(){
   }
 ```
   
-#### Task 4: Call ProductService Method from component
+#### Task 4.1: Call ProductService Method from component
 ```
 constructor(private productService: ProductService) { }
 
@@ -37,7 +37,15 @@ constructor(private productService: ProductService) { }
   }
 ```
 
-#### Task 5: Test the output
+#### Task 4.2: In init method, call the loadProducts method
+```
+ ngOnInit() {
+    this.loadProducts();
+  }
+  ```
+
+#### Task 5: Add the below content in component html file
 ```
 {{products|json}}
+```
 
