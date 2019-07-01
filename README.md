@@ -61,4 +61,4 @@ Note: There are Promise libraries out there that support cancellation, but ES6 P
 * Observable
   * An Observable is like a Stream (in many languages) and allows to pass zero or more events where the callback is called for each event.
 ```
-!@https://i.stack.imgur.com/MCvZ9.png
+![Promise](screenshots/promise_vs_observable.png)
