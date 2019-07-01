@@ -49,3 +49,18 @@ constructor(private productService: ProductService) { }
 {{products|json}}
 ```
 
+#### Internals
+* http client returns response as Observable
+
+#### Difference between Promise and Observable
+```
+Promise
+
+A Promise handles a single event when an async operation completes or fails.
+
+Note: There are Promise libraries out there that support cancellation, but ES6 Promise doesn't so far.
+
+Observable
+
+An Observable is like a Stream (in many languages) and allows to pass zero or more events where the callback is called for each event.
+```
